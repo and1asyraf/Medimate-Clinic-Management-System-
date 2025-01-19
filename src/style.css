@@ -5,13 +5,6 @@
     --secondcolor:#f8a803;
     --thirdcolor:#f4ab01;
     --textcolor:#4A5764;
-    --primary-color: #2ec8a6;
-    --secondary-color: #f8a803;
-    --background-color: #f5f5f5;
-    --text-color: #333;
-    --error-color: #ff4444;
-    --success-color: #00C851;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 *{
     margin:0; 
@@ -664,307 +657,155 @@ header{
 /* homepage
 ================================================== */
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--background-color);
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"poppins",sans-serif;
+}
+body{
+    background-color: #c9d6ff;
+    background:linear-gradient(to right,#e2e2e2,#c9d6ff);
+}
+.container{
+    background:#fff;
+    width:450px;
+    padding:1.5rem;
+    margin:50px auto;
+    border-radius:10px;
+    box-shadow:0 20px 35px rgba(0,0,1,0.9);
+}
+form{
+    margin:0 2rem;
+}
+.form-title{
+    font-size:1.5rem;
+    font-weight:bold;
+    text-align:center;
+    padding:1.3rem;
+    margin-bottom:0.4rem;
+}
+input{
+    color:inherit;
+    width:100%;
+    background-color:transparent;
+    border:none;
+    border-bottom:1px solid #757575;
+    padding-left:1.5rem;
+    font-size:15px;
+}
+.input-group{
+    padding:1% 0;
+    position:relative;
+
+}
+.input-group i{
+    position:absolute;
+    color:black;
+}
+input:focus{
+    background-color: transparent;
+    outline:transparent;
+    border-bottom:2px solid hsl(327,90%,28%);
+}
+input::placeholder{
+    color:transparent;
+}
+label{
+    color:#757575;
+    position:relative;
+    left:1.2em;
+    top:-1.3em;
+    cursor:auto;
+    transition:0.3s ease all;
+}
+input:focus~label,input:not(:placeholder-shown)~label{
+    top:-3em;
+    color:hsl(327,90%,28%);
+    font-size:15px;
+}
+.recover{
+    text-align:right;
+    font-size:1rem;
+    margin-bottom:1rem;
+
+}
+.recover a{
+    text-decoration:none;
+    color:rgb(125,125,235);
+}
+.recover a:hover{
+    color:blue;
+    text-decoration:underline;
+}
+button{
+    font-size:1.1rem;
+    padding:8px 0;
+    border-radius:5px;
+    outline:none;
+    border:none;
+    width:100%;
+    background:rgb(125,125,235);
+    color:white;
+    cursor:pointer;
+    transition:0.9s;
+}
+button:hover{
+    background:#07001f;
+}
+.or{
+    font-size:1.1rem;
+    margin-top:0.5rem;
+    text-align:center;
+}
+.icons{
+    text-align:center;
+}
+.icons i{
+    color:rgb(125,125,235);
+    padding:0.8rem 1.5rem;
+    border-radius:10px;
+    font-size:1.5rem;
+    cursor:pointer;
+    border:2px solid #dfe9f5;
+    margin:0 15px;
+    transition:1s;
+}
+.icons i:hover{
+    background:#07001f;
+    font-size:1.6rem;
+    border:2px solid rgb(125,125,235);
+}
+.links{
+    display:flex;
+    justify-content:space-around;
+    padding:0 4rem;
+    margin-top:0.9rem;
+    font-weight:bold;
+}
+ #signUpButton, #signInButton{
+    color:rgb(125,125,235);
+    border:none;
+    background-color:transparent;
+    font-size:1rem;
+    font-weight:bold;
+}
+#signUpButton:hover, #signInButton:hover {
+    text-decoration:underline;
+    color:blue;
+} 
+.messageDiv{
+    background-color:hsl(327,90%,28%);
+    color:white;
+    padding:10px 20px;
+    margin:10px;
+    border-radius: 5px;
+    font-size:1rem;
+    opacity:0;
+    animation:fadeOut 7s forwards;
+
 }
 
-.container {
-    background: white;
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-    padding: 2.5rem;
-    width: 100%;
-    max-width: 400px;
-    margin: 1rem;
-    transition: all 0.3s ease;
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.form-title {
-    color: var(--primary-color);
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    font-weight: 600;
-}
-
-.input-group {
-    position: relative;
-    margin-bottom: 1.5rem;
-}
-
-.input-group i {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--primary-color);
-}
-
-.input-group input {
-    width: 100%;
-    padding: 12px 40px;
-    border: 2px solid #e1e1e1;
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-    &::placeholder {
-        color: transparent;
-    }
-    &:focus::placeholder {
-        color: transparent;
-    }
-}
-
-.input-group input:focus {
-    border-color: var(--primary-color);
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(46, 200, 166, 0.2);
-}
-
-.input-group label {
-    position: absolute;
-    left: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #999;
-    transition: all 0.3s ease;
-    pointer-events: none;
-    background: white;
-    padding: 0 5px;
-}
-
-.input-group input:focus + label,
-.input-group input:not(:placeholder-shown) + label {
-    top: 0;
-    left: 15px;
-    font-size: 0.8rem;
-    color: var(--primary-color);
-    transform: translateY(-50%);
-}
-
-.btn {
-    width: 100%;
-    padding: 12px;
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background: #26a88b;
-    transform: translateY(-2px);
-}
-
-.or {
-    text-align: center;
-    margin: 1.5rem 0;
-    color: #666;
-    position: relative;
-}
-
-.or::before,
-.or::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 45%;
-    height: 1px;
-    background: #ddd;
-}
-
-.or::before { left: 0; }
-.or::after { right: 0; }
-
-.icons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1.5rem 0;
-}
-
-.icons i {
-    font-size: 1.5rem;
-    color: var(--secondary-color);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 10px;
-    border-radius: 50%;
-    background: #fff5e6;
-}
-
-.icons i:hover {
-    transform: scale(1.1);
-    color: #e69500;
-}
-
-.links {
-    text-align: center;
-    margin-top: 1.5rem;
-}
-
-.links p {
-    color: #666;
-    margin-bottom: 0.5rem;
-}
-
-.links button {
-    background: none;
-    border: none;
-    color: var(--primary-color);
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.links button:hover {
-    color: #26a88b;
-    text-decoration: underline;
-}
-
-.messageDiv {
-    padding: 10px;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.messageDiv.error {
-    background: #ffe6e6;
-    color: var(--error-color);
-    border: 1px solid #ffcccc;
-}
-
-.messageDiv.success {
-    background: #e6ffe6;
-    color: var(--success-color);
-    border: 1px solid #ccffcc;
-}
-
-/* Responsive Design */
-@media (max-width: 480px) {
-    .container {
-        margin: 1rem;
-        padding: 1.5rem;
-    }
-
-    .form-title {
-        font-size: 1.75rem;
-    }
-
-    .input-group input {
-        padding: 10px 35px;
-    }
-}
-
-/* Animation for container switch */
-#signIn, #signup {
-    animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Add these styles for form visibility control */
-#signup {
-    display: none;
-    opacity: 0;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate-in {
-    animation: fadeIn 0.3s ease forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.recover {
-    text-align: right;
-    margin: 0.5rem 0 1.5rem;
-}
-
-.recover a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.recover a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -2px;
-    left: 0;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease;
-}
-
-.recover a:hover {
-    color: #26a88b;
-}
-
-.recover a:hover::after {
-    width: 100%;
-}
-
-/* Add icon to recover password link */
-.recover a::before {
-    content: '\f084';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    margin-right: 5px;
-    font-size: 0.8rem;
-}
+/* end of homepage
+================================================== */
 
