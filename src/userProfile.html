@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/userProfile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="images/logo.png" alt=""></div>
+        <nav class="navbar">
+            <a href="homepage.html">Home</a>
+            <a href="#About">About</a>
+            <a href="#Service">Service</a>
+            <a href="#Gallery">Gallery</a>
+            <a href="#Blog">Blog</a>
+            <a href="#Contact">Contact</a>
+        </nav>
+        <div class="right-icons">
+            <div class="btn">Make Appointment</div>
+            <a href="userProfile.html" class="profile-link">
+                <img src="images/userImage.png" alt="Profile" class="profile-image">
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>User Profile</h1>
+        <div class="profile-info">
+            <div class="profile-picture">
+                <img src="images/userImage.png" alt="Profile Picture" class="profile-image">
+            </div>
+            <div class="info">
+                <h2 id="userName">Wong Jing Ming</h2>
+                <div class="info-item">
+                    <span>Last Name:</span>
+                    <input type="text" id="lastName" class="info-value" value="Wong" readonly>
+                </div>
+                <div class="info-item">
+                    <span>First Name:</span>
+                    <input type="text" id="firstName" class="info-value" value="Jing Ming" readonly>
+                </div>
+                <div class="info-item">
+                    <span>Email:</span>
+                    <input type="email" id="email" class="info-value" value="user123@gmail.com" readonly>
+                </div>
+                <div class="info-item">
+                    <span>Phone No:</span>
+                    <input type="tel" id="phone" class="info-value" value="012-3456789" readonly>
+                </div>
+                <button id="editProfileButton" class="btn">Edit Profile</button>
+                <button id="saveProfileButton" class="btn" style="display: none;">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/userProfile.js"></script>
+</body>
+</html>

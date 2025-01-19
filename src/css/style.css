@@ -28,17 +28,15 @@ header{
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
+    width: 100%;
+    padding: 1rem;
+    background-color: white;
+    z-index: 1000;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 7%;
-    width: 100%;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
-    z-index: 1000;
-    background-color: white !important;
-
 }
 .logo{
     width: 150px;
@@ -666,6 +664,7 @@ header{
 body{
     background-color: #c9d6ff;
     background:linear-gradient(to right,#e2e2e2,#c9d6ff);
+    padding-top: 80px;
 }
 .container{
     background:#fff;

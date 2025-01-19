@@ -1,0 +1,142 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1450px;
+    margin: 95px 10px 30px 40px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: var(--maincolor);
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0;
+}
+
+.profile-picture {
+    margin-bottom: 20px;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid var(--maincolor);
+}
+
+.info {
+    text-align: left;
+}
+
+.info h2 {
+    margin: 0;
+    color: var(--textcolor);
+    font-size: 24px;
+}
+
+.info p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--maincolor);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #26a88b;
+}
+
+.btn:active {
+    background-color: #1e7a6b;
+    transform: scale(0.95);
+}
+
+.btn.editing {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+.edit-form {
+    margin-top: 20px;
+}
+
+.profile-link {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--maincolor);
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.right-icons {
+    display: flex;
+    align-items: center;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.info-item span {
+    font-weight: bold;
+    color: var(--textcolor);
+    font-size: 18px;
+}
+
+.info-value {
+    background-color: #e9f5f5;
+    border: 1px solid var(--maincolor);
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 200%;
+    margin-top: 5px;
+    font-size: 18px;
+}
