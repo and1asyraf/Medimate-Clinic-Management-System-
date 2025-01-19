@@ -1,10 +1,9 @@
-const signUpButton = document.getElementById('signUpButton');
-const signInButton = document.getElementById('signInButton');
-const signInForm = document.getElementById('signIn');
-const signUpForm = document.getElementById('signup');
-
-// Make sure DOM is loaded before adding event listeners
 document.addEventListener('DOMContentLoaded', function() {
+    const signUpButton = document.getElementById('signUpButton');
+    const signInButton = document.getElementById('signInButton');
+    const signInForm = document.getElementById('signIn');
+    const signUpForm = document.getElementById('signup');
+
     signUpButton.addEventListener('click', function() {
         signInForm.style.opacity = '0';
         setTimeout(() => {
@@ -17,15 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300);
     });
 
-    signInButton.addEventListener('click', function() {
-        signUpForm.style.opacity = '0';
-        setTimeout(() => {
-            signUpForm.style.display = 'none';
-            signInForm.style.display = 'block';
-            signInForm.classList.add('animate-in');
-            setTimeout(() => {
-                signInForm.style.opacity = '1';
-            }, 50);
-        }, 300);
+    signInButton.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        // Redirect to the homepage
+        window.location.href = 'homepage.html'; // Use relative path
     });
 });
