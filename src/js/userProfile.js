@@ -4,20 +4,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const profileForm = document.getElementById('profileForm');
     const cancelEditButton = document.getElementById('cancelEditButton');
 
-    editProfileButton.addEventListener('click', function() {
-        // Change button style to indicate it's active
-        this.classList.add('editing');
+    // Get modal element
+    var modal = document.getElementById("editModal");
 
-        // Make input fields editable
-        document.getElementById('lastName').removeAttribute('readonly');
-        document.getElementById('firstName').removeAttribute('readonly');
-        document.getElementById('email').removeAttribute('readonly');
-        document.getElementById('phone').removeAttribute('readonly');
+    // Get button that opens the modal
+    var btn = document.getElementById("editProfileButton");
 
-        // Show the save button and hide the edit button
-        document.getElementById('saveProfileButton').style.display = 'inline-block';
-        document.getElementById('editProfileButton').style.display = 'none';
-    });
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 
     cancelEditButton.addEventListener('click', function() {
         document.getElementById('editForm').style.display = 'none';
@@ -37,27 +48,20 @@ document.addEventListener('DOMContentLoaded', function() {
         editForm.style.display = 'none';
     });
 
+    // Save changes button functionality
     document.getElementById('saveProfileButton').addEventListener('click', function() {
         // Capture the updated values
-        const lastName = document.getElementById('lastName').value;
         const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
         const email = document.getElementById('email').value;
         const phone = document.getElementById('phone').value;
 
-        // Log the updated information (or send it to a server)
-        console.log("Updated Information:", { lastName, firstName, email, phone });
+        // Update the displayed values
+        document.getElementById('userName').innerText = `${firstName} ${lastName}`;
+        document.getElementById('userEmail').innerText = email;
+        document.getElementById('userPhone').innerText = phone;
 
-        // Make input fields read-only again
-        document.getElementById('lastName').setAttribute('readonly', true);
-        document.getElementById('firstName').setAttribute('readonly', true);
-        document.getElementById('email').setAttribute('readonly', true);
-        document.getElementById('phone').setAttribute('readonly', true);
-
-        // Hide the save button and show the edit button
-        document.getElementById('saveProfileButton').style.display = 'none';
-        document.getElementById('editProfileButton').style.display = 'inline-block';
-
-        // Remove the editing class from the button
-        document.getElementById('editProfileButton').classList.remove('editing');
+        // Close the modal
+        modal.style.display = "none";
     });
 });
