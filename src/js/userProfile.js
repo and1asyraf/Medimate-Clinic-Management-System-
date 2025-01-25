@@ -1,5 +1,33 @@
 console.log("userProfile.js loaded"); // Debugging line
 
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+
+const auth = getAuth();
+const db = getFirestore();
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        const docRef = doc(db, "users", user.uid);
+        getDoc(docRef)
+        .then((docSnap) => {
+            if (docSnap.exists()) {
+                const userData = docSnap.data();
+                document.getElementById('firstName').value = userData.firstName;
+                document.getElementById('lastName').value = userData.lastName;
+                document.getElementById('email').value = userData.email;
+            } else {
+                console.log("No document found matching id");
+            }
+        })
+        .catch((error) => {
+            console.log("Error getting document:", error);
+        });
+    } else {
+        console.log("User is not logged in");
+    }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     const editProfileButton = document.getElementById('editProfileButton');
     const editForm = document.getElementById('editForm');
