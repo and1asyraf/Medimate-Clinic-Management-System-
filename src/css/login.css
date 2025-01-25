@@ -37,6 +37,7 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
+    flex-direction: column; /* Stack elements vertically */
     align-items: center;
 }
 
@@ -292,6 +293,22 @@ body {
 
 .recover a:hover::after {
     width: 100%;
+}
+
+.logo {
+    position: relative;
+    text-align: center; /* Center the logo horizontally */
+    margin-bottom: 2rem; /* Add space between the logo and the sign-in form */
+}
+
+.logo img {
+    max-width: 150px; /* Adjust size as needed */
+    height: auto;
+    display: inline-block; /* Ensures proper centering */
+}
+
+.container {
+    margin-top: 2rem; /* Add spacing below the logo */
 }
 
 /* Add icon to recover password link */
