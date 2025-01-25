@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM fully loaded and parsed');
     const profileImage = document.getElementById('profileImage');
     const dropdownMenu = document.getElementById('dropdownMenu');
+    const userImage = document.getElementById('userImage');
 
     if (!profileImage) {
         console.error('Profile image not found');
@@ -68,10 +69,19 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!dropdownMenu) {
         console.error('Dropdown menu not found');
     }
+    if (!userImage) {
+        console.error('User image not found');
+    }
 
     profileImage.addEventListener('click', (event) => {
         event.stopPropagation();
         console.log('Profile image clicked');
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    userImage.addEventListener('click', (event) => {
+        event.stopPropagation();
+        console.log('User image clicked');
         dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
     });
 
