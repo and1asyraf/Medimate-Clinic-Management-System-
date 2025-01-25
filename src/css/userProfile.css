@@ -1,3 +1,15 @@
+.navbar a {
+    margin: 0 15px;
+    color: #333;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    color: #0072ff;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f5f5f5;
@@ -12,7 +24,8 @@ body {
     background: white;
     padding: 120px;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e0e0e0;
 }
 
 h1 {
@@ -49,7 +62,9 @@ h1 {
     text-align: center;
     display: inline;
     color: var(--textcolor);
-    font-size: 24px;
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
     
 }
 
@@ -57,6 +72,7 @@ h1 {
     margin: 5px 0;
     font-size: 18px;
     margin-top: 10px;
+    color: #555;
 }
 
 .input-group {
@@ -82,12 +98,13 @@ h1 {
     background-color: var(--maincolor);
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: transform 0.2s ease-in-out, background-color 0.3s;
     font-size: 16px;
 }
 
 .btn:hover {
     background-color: #26a88b;
+    transform: translateY(-3px);
 }
 
 .btn:active {
@@ -152,14 +169,18 @@ h1 {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 1000; /* Sit on top of other elements */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal.show {
+    opacity: 1;
+    display: block;
 }
 
 .modal-content {
@@ -172,6 +193,8 @@ h1 {
     position: relative; /* Position relative for centering */
     top: 50%; /* Move down 50% */
     transform: translateY(-50%); /* Adjust to center vertically */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .close {
@@ -186,4 +209,46 @@ h1 {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.edit-modal-profile-image {
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    border-radius: 50%; /* Make it circular */
+    border: 2px solid var(--maincolor); /* Add border */
+    object-fit: cover; /* Ensure the image covers the area */
+    margin-bottom: 15px; /* Add some space below the image */
+}
+
+/* Styles for the profile picture in edit mode */
+.edit-profile-image {
+    width: 120px; /* Adjust size as needed */
+    height: 120px; /* Adjust size as needed */
+    border-radius: 50%; /* Make it circular */
+    border: 2px solid var(--maincolor); /* Add border */
+    object-fit: cover; /* Ensure the image covers the area */
+    margin-bottom: 15px; /* Add some space below the image */
+    transition: transform 0.2s; /* Add a hover effect */
+}
+
+.edit-profile-image:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.profile-upload {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+}
+
+.profile-upload img {
+    margin-right: 10px; /* Space between the image and the input */
+}
+
+.profile-upload input {
+    cursor: pointer; /* Change cursor to pointer for better UX */
+    border: none; /* Remove border */
+    outline: none; /* Remove outline */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    background: none; /* Remove background */
 }

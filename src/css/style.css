@@ -808,3 +808,11 @@ button:hover{
 /* end of homepage
 ================================================== */
 
+.top-bar-profile-image {
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+    border-radius: 50%; /* Make it circular */
+    border: 2px solid var(--maincolor); /* Add border */
+    object-fit: cover; /* Ensure the image covers the area */
+}
+

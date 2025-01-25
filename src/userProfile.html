@@ -50,6 +50,13 @@
             <span class="close">&times;</span>
             <h2>Edit Profile</h2>
             <div class="info-item">
+                <label for="profilePicture">Profile Picture:</label>
+                <div class="profile-upload">
+                    <img id="profilePicture" src="images/userImage.png" alt="Profile Picture" class="edit-profile-image">
+                    <input type="file" id="uploadImage" accept="image/*">
+                </div>
+            </div>
+            <div class="info-item">
                 <label for="firstName">First Name:</label>
                 <input type="text" id="firstName" value="Jing Ming">
             </div>
@@ -69,6 +76,26 @@
         </div>
     </div>
 
-    <script src="js/userProfile.js"></script>
+    <script>
+        console.log("userProfile.js loaded"); // Debugging line
+        document.addEventListener('DOMContentLoaded', function() {
+            const editProfileButton = document.getElementById('editProfileButton');
+            const modal = document.getElementById("editModal");
+            const span = document.getElementsByClassName("close")[0];
+
+            editProfileButton.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            document.getElementById('saveProfileButton').addEventListener('click', function() {
+                console.log("Save Changes clicked"); // Debugging line
+                modal.style.display = "none"; // Close the modal
+            });
+        });
+    </script>
 </body>
 </html>
