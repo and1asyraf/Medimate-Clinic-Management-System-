@@ -10,6 +10,7 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/userProfile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 <body> 
@@ -27,9 +28,17 @@
         <div class="right-icons">
             <div id="menu-bars" class="fas fa-bars"></div>
             <div class="btn">Make Appointment</div>
-            <a href="userProfile.html" class="profile-link">
-                <img src="images/userImage.png" alt="Profile" class="profile-image">
-            </a>
+            <div class="profile-dropdown">
+                <img src="images/userImage.png" alt="Profile" class="profile-image" id="profileImage">
+                <div class="dropdown-content" id="dropdownMenu">
+                    <a href="userProfile.html">
+                        <i class="fas fa-user-edit"></i> Customize Profile
+                    </a>
+                    <a href="#" id="logoutButton">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -363,11 +372,9 @@
         <div class="footer-inner">
             <div class="footer-content">
                 <h1>Dummy Links</h1>
-        
-    <!-- footer ended -->
-
-
-    <script src="script.js"></script>
+            </div>
+        </div>
+    </div>    
 
     <!-- User Profile Section -->
     <div class="user-profile">
@@ -381,5 +388,9 @@
         <button class="save-changes">Save Changes</button>
     </div>
 
+    <script src="js/homepage.js" type="module"></script>
+    <script>
+        console.log('Inline script loaded');
+    </script>
 </body>
 </html>

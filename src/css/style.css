@@ -80,8 +80,16 @@ header{
 #menu-bars:hover{
     color: var(--maincolor);
 }
-.right-icons .btn{
+.right-icons {
+    display: flex;
+    align-items: center;
+}
 
+.btn {
+    margin-right: 15px;
+}
+
+.right-icons .btn{
     padding: 1.2rem 2rem;
     font-size: 1.7rem;
     background: var(--maincolor);
@@ -814,5 +822,45 @@ button:hover{
     border-radius: 50%; /* Make it circular */
     border: 2px solid var(--maincolor); /* Add border */
     object-fit: cover; /* Ensure the image covers the area */
+}
+
+.profile-link {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: 0; /* Align to the right of the profile image */
+    background-color: #ffffff; /* White background */
+    min-width: 160px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    border-radius: 5px; /* Rounded corners */
+    z-index: 1;
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.dropdown-content a {
+    color: #333; /* Dark text color */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+}
+
+.dropdown-content a i {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 16px; /* Adjust icon size */
+}
+
+.dropdown-content a:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+    color: #0072ff; /* Change text color on hover */
 }
 
