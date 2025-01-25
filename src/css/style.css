@@ -864,3 +864,18 @@ button:hover{
     color: #0072ff; /* Change text color on hover */
 }
 
+.emergency-btn {
+    padding: 10px 20px;
+    background-color: #ff4444;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 15px; /* Adds spacing between the buttons */
+    transition: background 0.3s ease;
+}
+
+.emergency-btn:hover {
+    background-color: #cc0000;
+}

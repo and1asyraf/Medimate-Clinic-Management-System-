@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emergency Button</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/emergencyPageStyles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <div class="logo"><img src="images/logo.png" alt="" /></div>
+      <nav class="navbar">
+        <a href="homepage.html">Home</a>
+        <a href="#About">About</a>
+        <a href="#Service">Service</a>
+        <a href="#Gallery">Gallery</a>
+        <a href="#Blog">Blog</a>
+        <a href="#Contact">Contact</a>
+      </nav>
+      <div class="right-icons">
+        <div id="menu-bars" class="fas fa-bars"></div>
+        <a class="btn" href="MakeAppoinment/MakeAppointment.html"
+          >Make Appointment</a
+        >
+        <a href="userProfile.html" class="profile-link">
+          <img src="images/userImage.png" alt="Profile" class="profile-image" />
+        </a>
+      </div>
+    </header>
+
+    <!-- Emergency Button Section -->
+    <div class="container">
+      <h1>Emergency Button</h1>
+      <div class="emergency-btn">
+        <img
+          src="./images/emergencyButton.png"
+          alt="Emergency Button"
+          id="emergencyButton"
+        />
+      </div>
+
+      <form id="locationForm" style="display: none">
+        <div class="input-group">
+          <label for="location">Enter your location:</label>
+          <input
+            type="text"
+            id="location"
+            placeholder="Type your location here..."
+            required
+          />
+        </div>
+        <button type="submit" class="btn submit-btn">Submit</button>
+      </form>
+
+      <p
+        id="confirmationMessage"
+        style="display: none; color: green; font-weight: bold"
+      >
+        An Emergency Response is on the way!
+      </p>
+
+      <div id="cancelContainer" style="display: none">
+        <button class="cancel-btn" id="cancelButton">Cancel Emergency</button>
+      </div>
+
+      <form id="passwordForm" style="display: none">
+        <div class="input-group">
+          <label for="password">Enter your password to cancel:</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password..."
+            required
+          />
+        </div>
+        <button type="submit" class="btn submit-btn">Confirm Cancel</button>
+      </form>
+    </div>
+
+    <script>
+      const emergencyButton = document.getElementById("emergencyButton");
+      const locationForm = document.getElementById("locationForm");
+      const confirmationMessage = document.getElementById(
+        "confirmationMessage"
+      );
+      const cancelContainer = document.getElementById("cancelContainer");
+      const cancelButton = document.getElementById("cancelButton");
+      const passwordForm = document.getElementById("passwordForm");
+
+      // Show location form when emergency button is clicked
+      emergencyButton.addEventListener("click", () => {
+        locationForm.style.display = "block";
+      });
+
+      // Handle form submission
+      locationForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const locationInput = document.getElementById("location").value;
+
+        if (locationInput) {
+          confirmationMessage.style.display = "block";
+          cancelContainer.style.display = "block";
+          locationForm.style.display = "none";
+        } else {
+          alert("Please enter your location.");
+        }
+      });
+
+      // Show password form when cancel button is clicked
+      cancelButton.addEventListener("click", () => {
+        passwordForm.style.display = "block";
+        cancelContainer.style.display = "none";
+      });
+
+      // Handle password form submission
+      passwordForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const passwordInput = document.getElementById("password").value;
+
+        if (passwordInput) {
+          confirmationMessage.style.display = "none";
+          passwordForm.style.display = "none";
+          alert("Emergency has been successfully cancelled.");
+        } else {
+          alert("Please enter your password.");
+        }
+      });
+    </script>
+  </body>
+</html>
