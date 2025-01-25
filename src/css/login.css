@@ -189,7 +189,7 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.links button {
+/* .links button {
     background: none;
     border: none;
     color: var(--primary-color);
@@ -201,7 +201,23 @@ body {
 .links button:hover {
     color: #26a88b;
     text-decoration: underline;
-}
+} */
+
+.links button {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .links button:hover {
+    background-color: #26a88b;
+  }
 
 .messageDiv {
     padding: 10px;
@@ -318,4 +334,4 @@ body {
     font-weight: 900;
     margin-right: 5px;
     font-size: 0.8rem;
-} 
+}   
