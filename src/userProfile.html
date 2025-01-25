@@ -1,101 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Profile</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/userProfile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/userProfile.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
     <header>
-        <div class="logo"><img src="images/logo.png" alt=""></div>
-        <nav class="navbar">
-            <a href="homepage.html">Home</a>
-            <a href="#About">About</a>
-            <a href="#Service">Service</a>
-            <a href="#Gallery">Gallery</a>
-            <a href="#Blog">Blog</a>
-            <a href="#Contact">Contact</a>
-        </nav>
-        <div class="right-icons">
-            <div class="btn">Make Appointment</div>
-            <a href="userProfile.html" class="profile-link">
-                <img src="images/userImage.png" alt="Profile" class="profile-image">
-            </a>
-        </div>
+      <div class="logo"><img src="images/logo.png" alt="" /></div>
+      <nav class="navbar">
+        <a href="homepage.html">Home</a>
+        <a href="#About">About</a>
+        <a href="#Service">Service</a>
+        <a href="#Gallery">Gallery</a>
+        <a href="#Blog">Blog</a>
+        <a href="#Contact">Contact</a>
+      </nav>
+      <div class="right-icons">
+        <div class="btn">Make Appointment</div>
+        <a href="userProfile.html" class="profile-link">
+          <img src="images/userImage.png" alt="Profile" class="profile-image" />
+        </a>
+      </div>
     </header>
 
     <div class="container">
-        <h1>User Profile</h1>
-        <div class="profile-info">
-            <div class="profile-picture">
-                <img src="images/userImage.png" alt="Profile Picture" class="profile-image">
-            </div>
-            <div class="info">
-                <h2 id="userName">
-                    <span id="firstName">Wong</span> <span id="lastName">Jing Ming</span>
-                </h2>
-                <p id="userEmail">meon123@gmail.com</p>
-                <p id="userPhone">012-3456789</p>
-                <button id="editProfileButton" class="btn">Edit Profile</button>
-            </div>
+      <h1>User Profile</h1>
+      <div class="profile-info">
+        <div class="profile-picture">
+          <img
+            src="images/userImage.png"
+            alt="Profile Picture"
+            class="profile-image"
+          />
         </div>
+        <div class="info">
+          <h2 id="userName">
+            <span id="firstName">Wong</span>
+            <span id="lastName">Jing Ming</span>
+          </h2>
+          <p id="userEmail">meon123@gmail.com</p>
+          <p id="userPhone">012-3456789</p>
+          <button id="editProfileButton" class="btn">Edit Profile</button>
+          <button id="viewAppointmentsButton" class="btn">
+            View Past Appointments
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- Modal for Editing Profile -->
     <div id="editModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Edit Profile</h2>
-            <div class="info-item">
-                <label for="profilePicture">Profile Picture:</label>
-                <div class="profile-upload">
-                    <img id="profilePicture" src="images/userImage.png" alt="Profile Picture" class="edit-profile-image">
-                    <input type="file" id="uploadImage" accept="image/*">
-                </div>
-            </div>
-            <div class="info-item">
-                <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" value="Jing Ming">
-            </div>
-            <div class="info-item">
-                <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" value="Wong">
-            </div>
-            <div class="info-item">
-                <label for="email">Email:</label>
-                <input type="email" id="email" value="meon123@gmail.com">
-            </div>
-            <div class="info-item">
-                <label for="phone">Phone No:</label>
-                <input type="tel" id="phone" value="012-3456789">
-            </div>
-            <button id="saveProfileButton" class="btn">Save Changes</button>
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Edit Profile</h2>
+        <div class="info-item">
+          <label for="profilePicture">Profile Picture:</label>
+          <div class="profile-upload">
+            <img
+              id="profilePicture"
+              src="images/userImage.png"
+              alt="Profile Picture"
+              class="edit-profile-image"
+            />
+            <input type="file" id="uploadImage" accept="image/*" />
+          </div>
         </div>
+        <div class="info-item">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" value="Jing Ming" />
+        </div>
+        <div class="info-item">
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" value="Wong" />
+        </div>
+        <div class="info-item">
+          <label for="email">Email:</label>
+          <input type="email" id="email" value="meon123@gmail.com" />
+        </div>
+        <div class="info-item">
+          <label for="phone">Phone No:</label>
+          <input type="tel" id="phone" value="012-3456789" />
+        </div>
+        <button id="saveProfileButton" class="btn">Save Changes</button>
+      </div>
     </div>
 
     <script>
-        console.log("userProfile.js loaded"); // Debugging line
-        document.addEventListener('DOMContentLoaded', function() {
-            const editProfileButton = document.getElementById('editProfileButton');
-            const modal = document.getElementById("editModal");
-            const span = document.getElementsByClassName("close")[0];
+      console.log("userProfile.js loaded"); // Debugging line
+      document.addEventListener("DOMContentLoaded", function () {
+        const editProfileButton = document.getElementById("editProfileButton");
+        const viewAppointmentsButton = document.getElementById(
+          "viewAppointmentsButton"
+        );
+        const modal = document.getElementById("editModal");
+        const span = document.getElementsByClassName("close")[0];
 
-            editProfileButton.onclick = function() {
-                modal.style.display = "block";
-            }
+        editProfileButton.onclick = function () {
+          modal.style.display = "block";
+        };
 
-            span.onclick = function() {
-                modal.style.display = "none";
-            }
+        span.onclick = function () {
+          modal.style.display = "none";
+        };
 
-            document.getElementById('saveProfileButton').addEventListener('click', function() {
-                console.log("Save Changes clicked"); // Debugging line
-                modal.style.display = "none"; // Close the modal
-            });
-        });
+        document
+          .getElementById("saveProfileButton")
+          .addEventListener("click", function () {
+            console.log("Save Changes clicked"); // Debugging line
+            modal.style.display = "none"; // Close the modal
+          });
+
+        // Redirect to Past Appointments Page
+        viewAppointmentsButton.onclick = function () {
+          window.location.href = "pastAppointments.html";
+        };
+      });
     </script>
-</body>
+  </body>
 </html>
