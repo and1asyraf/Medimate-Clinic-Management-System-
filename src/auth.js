@@ -22,54 +22,68 @@ document.getElementById("backToSignIn").addEventListener("click", () => {
 });
 
 // Sign Up
-document.getElementById("signup-form").addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const email = document.getElementById("signup-email").value;
-  const password = document.getElementById("signup-password").value;
-  const confirmPassword = document.getElementById("confirm-password").value;
+document
+  .getElementById("signup-form")
+  .addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const email = document.getElementById("signup-email").value;
+    const password = document.getElementById("signup-password").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
 
-  if (password !== confirmPassword) {
-    alert("Passwords do not match!");
-    return;
-  }
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
 
-  try {
-    const { data, error } = await supabaseClient.auth.signUp({ email, password });
-    if (error) throw error;
-    alert("Signup successful! Please log in.");
-    document.getElementById("showSignIn").click();
-  } catch (error) {
-    alert(error.message);
-  }
-});
+    try {
+      const { data, error } = await supabaseClient.auth.signUp({
+        email,
+        password,
+      });
+      if (error) throw error;
+      alert("Signup successful! Please log in.");
+      document.getElementById("showSignIn").click();
+    } catch (error) {
+      alert(error.message);
+    }
+  });
 
 // Sign In
-document.getElementById("login-form").addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const email = document.getElementById("login-email").value;
-  const password = document.getElementById("login-password").value;
+document
+  .getElementById("login-form")
+  .addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
 
-  try {
-    const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
-    if (error) throw error;
-    alert("Login successful!");
-    // Redirect to user-specific dashboard
-    window.location.href = "homepage.html";
-  } catch (error) {
-    alert(error.message);
-  }
-});
+    try {
+      const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email,
+        password,
+      });
+      if (error) throw error;
+      alert("Login successful!");
+      // Redirect to user-specific dashboard
+      window.location.href = "homepage.html";
+    } catch (error) {
+      alert(error.message);
+    }
+  });
 
 // Reset Password
-document.getElementById("reset-password-form").addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const email = document.getElementById("reset-email").value;
+document
+  .getElementById("reset-password-form")
+  .addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const email = document.getElementById("reset-email").value;
 
-  try {
-    const { data, error } = await supabaseClient.auth.resetPasswordForEmail(email);
-    if (error) throw error;
-    alert("Password reset email sent!");
-  } catch (error) {
-    alert(error.message);
-  }
-});
+    try {
+      const { data, error } = await supabaseClient.auth.resetPasswordForEmail(
+        email
+      );
+      if (error) throw error;
+      alert("Password reset email sent!");
+    } catch (error) {
+      alert(error.message);
+    }
+  });
