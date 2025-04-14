@@ -33,6 +33,9 @@ This project supports **UN SDG 3: Good Health and Well-being**, promoting digita
 
 ## 🚀 Getting Started
 
+### Screenshots 
+![Patient Sign In](screenshots/SignInPatient.png) 
+
 ### Prerequisites
 
 - Firebase account: [https://firebase.google.com](https://firebase.google.com)
@@ -46,4 +49,6 @@ This project supports **UN SDG 3: Good Health and Well-being**, promoting digita
 ```bash
 git clone https://github.com/yourusername/medimate.git
 cd medimate
+
+
 
