@@ -87,7 +87,6 @@ header{
 
 .btn {
     margin-right: 15px;
-    
 }
 
 .right-icons .btn{
@@ -879,31 +878,4 @@ button:hover{
 
 .emergency-btn:hover {
     background-color: #cc0000;
-}
-
-.common-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--maincolor);
-    color: white;
-    text-align: center;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    gap: 20px; /* Adjust the gap size as needed */
-
-}
-
-.common-btn:hover {
-    background-color: var(--secondcolor);
-}
-
-#emergencyButton {
-    background-color: red; /* Specific color for the emergency button */
-}
-
-#emergencyButton:hover {
-    background-color: darkred; /* Hover color for the emergency button */
 }

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Medical Record</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="patientMedicalRecordStyles.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="images/logo.png" alt=""></div>
+        <nav class="navbar">
+            <a href="homepageAdmin.html">Home</a>
+            <a href="#About">About</a>
+            <a href="#Service">Service</a>
+            <a href="#Gallery">Gallery</a>
+            <a href="#Blog">Blog</a>
+            <a href="#Contact">Contact</a>
+        </nav>
+        <div class="right-icons">
+            <img src="images/adminPicture.png" alt="Profile" class="profile-image">
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Medical Record for <span id="patientName">Patient Name</span></h1>
+
+        <div class="record-section">
+            <h2>Basic Information</h2>
+            <p><strong>Matric ID:</strong> <span id="matricID">123321</span></p>
+            <p><strong>Age:</strong> <span id="age">22</span></p>
+            <p><strong>Contact:</strong> <span id="contact">012-3456789</span></p>
+            <p><strong>Address:</strong> <span id="address">123 Street, City</span></p>
+        </div>
+
+        <div class="record-section">
+            <h2>Medical History</h2>
+            <ul id="medicalHistory">
+                <li>2023-01-15: Routine Checkup - No issues detected</li>
+                <li>2022-12-10: Diagnosed with mild flu, prescribed medication</li>
+                <li>2022-11-05: Blood test results - Normal</li>
+            </ul>
+        </div>
+
+        <div class="record-section">
+            <h2>Prescriptions</h2>
+            <ul id="prescriptions">
+                <li>2023-01-15: Multivitamins</li>
+                <li>2022-12-10: Paracetamol, Antihistamine</li>
+            </ul>
+        </div>
+
+        <div class="record-section">
+            <h2>Doctor's Notes</h2>
+            <p id="doctorsNotes">Patient is in good health, advised to maintain a balanced diet and regular exercise.</p>
+        </div>
+
+        <a href="viewPatientInfo.html" class="back-btn">Back to Patient Information</a>
+    </div>
+
+    <script>
+        // Dynamic content loading for patient information
+        const urlParams = new URLSearchParams(window.location.search);
+        const patientID = urlParams.get('id');
+
+        const patients = {
+            101: {
+                name: "Wong Jing Ming",
+                matricID: "123321",
+                age: 22,
+                contact: "012-3456789",
+                address: "123 Street, City",
+                medicalHistory: [
+                    "2023-01-15: Routine Checkup - No issues detected",
+                    "2022-12-10: Diagnosed with mild flu, prescribed medication",
+                    "2022-11-05: Blood test results - Normal"
+                ],
+                prescriptions: [
+                    "2023-01-15: Multivitamins",
+                    "2022-12-10: Paracetamol, Antihistamine"
+                ],
+                doctorsNotes: "Patient is in good health, advised to maintain a balanced diet and regular exercise."
+            },
+            102: {
+                name: "Za'im Qody",
+                matricID: "145541",
+                age: 23,
+                contact: "013-9876543",
+                address: "456 Avenue, City",
+                medicalHistory: [
+                    "2023-02-10: Checkup - No major issues",
+                    "2022-11-20: Prescribed antibiotics for infection"
+                ],
+                prescriptions: [
+                    "2023-02-10: Multivitamins",
+                    "2022-11-20: Antibiotics"
+                ],
+                doctorsNotes: "No significant issues, monitor for seasonal allergies."
+            },
+            103: {
+                name: "Ahmad Peja",
+                matricID: "169961",
+                age: 21,
+                contact: "014-2233445",
+                address: "789 Boulevard, City",
+                medicalHistory: [
+                    "2023-03-12: Diagnosed with mild anemia",
+                    "2022-12-15: Annual physical - Normal"
+                ],
+                prescriptions: [
+                    "2023-03-12: Iron supplements"
+                ],
+                doctorsNotes: "Monitor hemoglobin levels, encourage iron-rich diet."
+            }
+        };
+
+        if (patients[patientID]) {
+            const patient = patients[patientID];
+            document.getElementById("patientName").textContent = patient.name;
+            document.getElementById("matricID").textContent = patient.matricID;
+            document.getElementById("age").textContent = patient.age;
+            document.getElementById("contact").textContent = patient.contact;
+            document.getElementById("address").textContent = patient.address;
+
+            const medicalHistoryList = document.getElementById("medicalHistory");
+            patient.medicalHistory.forEach(entry => {
+                const li = document.createElement("li");
+                li.textContent = entry;
+                medicalHistoryList.appendChild(li);
+            });
+
+            const prescriptionsList = document.getElementById("prescriptions");
+            patient.prescriptions.forEach(entry => {
+                const li = document.createElement("li");
+                li.textContent = entry;
+                prescriptionsList.appendChild(li);
+            });
+
+            document.getElementById("doctorsNotes").textContent = patient.doctorsNotes;
+        } else {
+            document.querySelector(".container").innerHTML = "<h1>Patient not found</h1>";
+        }
+    </script>
+</body>
+</html>

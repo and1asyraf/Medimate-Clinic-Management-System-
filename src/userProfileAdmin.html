@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Profile</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/userProfile.css" />
+    <link rel="stylesheet" href="css/adminStyles.css" />
+    <link rel="stylesheet" href="css/profileAdminStyles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -15,7 +15,7 @@
     <header>
       <div class="logo"><img src="images/logo.png" alt="" /></div>
       <nav class="navbar">
-        <a href="homepage.html">Home</a>
+        <a href="homepageAdmin.html">Home</a>
         <a href="#About">About</a>
         <a href="#Service">Service</a>
         <a href="#Gallery">Gallery</a>
@@ -23,8 +23,8 @@
         <a href="#Contact">Contact</a>
       </nav>
       <div class="right-icons">
-        <a href="userProfile.html" class="profile-link">
-          <img src="images/userImage.png" alt="Profile" class="profile-image" />
+        <a href="userProfileAdmin.html" class="profile-link">
+          <img src="images/adminPicture.png" alt="Profile" class="profile-image" />
         </a>
       </div>
     </header>
@@ -34,24 +34,20 @@
       <div class="profile-info">
         <div class="profile-picture">
           <img
-            src="images/userImage.png"
+            src="images/adminPicture.png"
             alt="Profile Picture"
             class="profile-image"
           />
         </div>
         <div class="info">
           <h2 id="userName">
-            <span id="firstName">Wong</span>
-            <span id="lastName">Jing Ming</span>
+            <span id="firstName">Andi</span>
+            <span id="lastName">Capopps</span>
           </h2>
-          <p id="userEmail">meon123@gmail.com</p>
-          <p id="userPhone">012-3456789</p>
+          <p id="userEmail">andiacap1@gmail.com</p>
+          <p id="userPhone">011-10457001</p>
           <button id="editProfileButton" class="btn">Edit Profile</button>
-          <button id="medicalReportButton" class="btn">Medical Report</button>
-          <!-- <a href="medicalReport.html" class="btn">Medical Report</a> -->
-          <button id="viewAppointmentsButton" class="btn">
-            View Past Appointments
-          </button>
+          <button id="adminViewAppointmentsButton" class="btn"> View Your Schedule </button>
         </div>
       </div>
     </div>
@@ -66,7 +62,7 @@
           <div class="profile-upload">
             <img
               id="profilePicture"
-              src="images/userImage.png"
+              src="images/adminPicture.png"
               alt="Profile Picture"
               class="edit-profile-image"
             />
@@ -75,19 +71,19 @@
         </div>
         <div class="info-item">
           <label for="firstName">First Name:</label>
-          <input type="text" id="firstName" value="Jing Ming" />
+          <input type="text" id="firstName" value="Andi" />
         </div>
         <div class="info-item">
           <label for="lastName">Last Name:</label>
-          <input type="text" id="lastName" value="Wong" />
+          <input type="text" id="lastName" value="Capopps" />
         </div>
         <div class="info-item">
           <label for="email">Email:</label>
-          <input type="email" id="email" value="meon123@gmail.com" />
+          <input type="email" id="email" value="andiacap1@gmail.com" />
         </div>
         <div class="info-item">
           <label for="phone">Phone No:</label>
-          <input type="tel" id="phone" value="012-3456789" />
+          <input type="tel" id="phone" value="011-10457001" />
         </div>
         <button id="saveProfileButton" class="btn">Save Changes</button>
       </div>
@@ -97,38 +93,34 @@
       console.log("userProfile.js loaded"); // Debugging line
       document.addEventListener("DOMContentLoaded", function () {
         const editProfileButton = document.getElementById("editProfileButton");
-        const viewAppointmentsButton = document.getElementById(
-          "viewAppointmentsButton"
-        );
+        const viewAppointmentsButton = document.getElementById("adminViewAppointmentsButton");
         const modal = document.getElementById("editModal");
         const span = document.getElementsByClassName("close")[0];
 
+        // Edit Profile Button (Modal functionality)
         editProfileButton.onclick = function () {
           modal.style.display = "block";
-        };   
+        };
 
         span.onclick = function () {
           modal.style.display = "none";
         };
 
-        document
-          .getElementById("saveProfileButton")
-          .addEventListener("click", function () {
-            const firstName = document.getElementById("firstName").value;
-            const lastName = document.getElementById("lastName").value;
+        document.getElementById("saveProfileButton").addEventListener("click", function () {
+          const firstName = document.getElementById("firstName").value;
+          const lastName = document.getElementById("lastName").value;
 
-            // Redirect to the edited profile page
-            window.location.href = "editedProfile.html";
-          });
+          // Logic to save the profile changes, if required
+          // For example, send data to a server or localStorage
+          console.log("Profile saved:", firstName, lastName);
 
-        // Redirect to Past Appointments Page
+          // Redirect to the edited profile page (optional)
+          window.location.href = "editedProfile.html";
+        });
+
+        // Redirect to Admin View Schedule Page
         viewAppointmentsButton.onclick = function () {
-          window.location.href = "pastAppointments.html";
-        };
-
-        // Redirect to Medical Report Page
-        medicalReportButton.onclick = function () {
-          window.location.href = "medicalReport.html";
+          window.location.href = "adminViewSchedule.html"; // Redirect to adminViewSchedule.html
         };
       });
     </script>

@@ -1,0 +1,185 @@
+:root {
+    --primary-color: #2ec8a6;
+    --secondary-color: #009900;
+    --background-light: #f4f4f4;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    background-color: var(--background-light);
+    color: #212121;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.logo img {
+    height: 50px;
+}
+.navbar {
+    display: flex;
+    gap: 20px;
+}
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.navbar a:hover {
+    color: var(--primary-color);
+}
+.right-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.btn {
+display: inline-block;          /* Makes it behave like a block-level element */
+text-decoration: none;       
+color: #2ec8a6;                  /* Text color */
+background-color: whitesmoke;     /* Background color */
+padding: 10px 20px;            /* Spacing around the text */
+border-radius: 5px;            /* Rounded corners */
+font-size: 16px;               /* Font size */
+font-weight: bold;             /* Font weight */
+transition: background-color 0.3s ease; /* Smooth hover effect */
+text-align: center;            /* Centers text */
+}
+.right-icons .btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+#menu-bars {
+    display: none;
+    cursor: pointer;
+}
+.report-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.medical-section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border-left: 5px solid var(--primary-color);
+}
+.patient-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.patient-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.patient-profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 12px;
+    text-align: left;
+}
+th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+}
+.critical-note {
+    background-color: #fff0f0;
+    border-left: 5px solid #ff6666;
+    padding: 10px;
+    margin: 10px 0;
+}
+@media (max-width: 768px) {
+    header {
+        padding: 15px;
+        flex-wrap: wrap;
+    }
+    .navbar {
+        display: none;
+    }
+    #menu-bars {
+        display: block;
+    }
+}
+
+#medicalHistory {
+    display: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: orange;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

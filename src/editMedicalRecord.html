@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Comprehensive Medical Report</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="medicalReportStyles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="./images/logo.png"
+          alt="Medical Center Logo"
+        />
+      </div>
+      <nav class="navbar">
+        <a href="homepage.html">Home</a>
+        <a href="#About">About</a>
+        <a href="#Service">Service</a>
+        <a href="#Gallery">Gallery</a>
+        <a href="#Blog">Blog</a>
+        <a href="#Contact">Contact</a>
+      </nav>
+      <div class="right-icons">
+        <div id="menu-bars" class="fas fa-bars"></div>
+      </div>
+    </header>
+
+    <div class="report-container">
+      <div class="report-container">
+        <div class="patient-header">
+          <div class="patient-profile">
+            <img
+              src="./images/userImage.png"
+              alt="Patient Profile"
+            />
+            <div>
+              <h1>Wong Jing Ming</h1>
+              <p>Patient ID: PMIS-2025-9637</p>
+            </div>
+          </div>
+
+          <!-- <a href="userProfileAdmin.html" class="btn">Back to Profile</a> -->
+        </div>
+
+        <div class="medical-section">
+          <h2>Patient Identification Details</h2>
+          <table>
+            <tr>
+              <th>Full Name</th>
+              <td id="fullName">Wong Jing Ming</td>
+            </tr>
+            <tr>
+              <th>Date of Birth</th>
+              <td id="dob">03/15/2003 (22 years)</td>
+            </tr>
+            <tr>
+              <th>Gender</th>
+              <td id="gender">Male</td>
+            </tr>
+            <tr>
+              <th>Contact Information</th>
+              <td id="contact">012-3456789</td>
+            </tr>
+            <tr>
+              <th>Primary Care Physician</th>
+              <td id="physician">Dr. Elena Martinez</td>
+            </tr>
+            <tr>
+              <th>Insurance Provider</th>
+              <td id="insurance">Blue Cross Blue Shield</td>
+            </tr>
+          </table>
+
+          <!-- Edit button -->
+          <button id="editButton" class="btn">Edit</button>
+        </div>
+
+        <!-- Edit Modal -->
+        <div id="editModal" class="modal">
+          <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h3>Edit Patient Details</h3>
+            <form id="editForm">
+              <label for="editFullName">Full Name:</label>
+              <input
+                type="text"
+                id="editFullName"
+                value="Wong Jing Ming"
+                required
+              />
+              <br />
+              <label for="editDob">Date of Birth:</label>
+              <input type="text" id="editDob" value="03/15/2003" required />
+              <br />
+              <label for="editGender">Gender:</label>
+              <input type="text" id="editGender" value="Male" required />
+              <br />
+              <label for="editContact">Contact Information:</label>
+              <input
+                type="text"
+                id="editContact"
+                value="012-3456789"
+                required
+              />
+              <br />
+              <label for="editPhysician">Primary Care Physician:</label>
+              <input
+                type="text"
+                id="editPhysician"
+                value="Dr. Elena Martinez"
+                required
+              />
+              <br />
+              <label for="editInsurance">Insurance Provider:</label>
+              <input
+                type="text"
+                id="editInsurance"
+                value="Blue Cross Blue Shield"
+                required
+              />
+              <br />
+              <button type="button" id="saveChanges" class="btn">
+                Save Changes
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        // Get elements
+        const editButton = document.getElementById("editButton");
+        const editModal = document.getElementById("editModal");
+        const closeModal = document.getElementById("closeModal");
+        const saveChangesButton = document.getElementById("saveChanges");
+
+        // Open the modal when the "Edit" button is clicked
+        editButton.addEventListener("click", function () {
+          editModal.style.display = "block";
+        });
+
+        // Close the modal when the "X" button is clicked
+        closeModal.addEventListener("click", function () {
+          editModal.style.display = "none";
+        });
+
+        // Save the changes when the "Save Changes" button is clicked
+        saveChangesButton.addEventListener("click", function () {
+          // Get the updated values from the form
+          const updatedFullName = document.getElementById("editFullName").value;
+          const updatedDob = document.getElementById("editDob").value;
+          const updatedGender = document.getElementById("editGender").value;
+          const updatedContact = document.getElementById("editContact").value;
+          const updatedPhysician =
+            document.getElementById("editPhysician").value;
+          const updatedInsurance =
+            document.getElementById("editInsurance").value;
+
+          // Update the table with new values
+          document.getElementById("fullName").textContent = updatedFullName;
+          document.getElementById("dob").textContent = updatedDob;
+          document.getElementById("gender").textContent = updatedGender;
+          document.getElementById("contact").textContent = updatedContact;
+          document.getElementById("physician").textContent = updatedPhysician;
+          document.getElementById("insurance").textContent = updatedInsurance;
+
+          // Close the modal
+          editModal.style.display = "none";
+        });
+
+        // Close the modal if clicked outside
+        window.addEventListener("click", function (event) {
+          if (event.target === editModal) {
+            editModal.style.display = "none";
+          }
+        });
+      </script>
+
+      <!-- Styles for the Modal -->
+      <style>
+        .modal {
+          display: none;
+          position: fixed;
+          z-index: 1;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+          background-color: #fff;
+          margin: 15% auto;
+          padding: 20px;
+          width: 80%;
+          max-width: 500px;
+        }
+
+        .close {
+          color: #aaa;
+          font-size: 28px;
+          font-weight: bold;
+          position: absolute;
+          right: 10px;
+          top: 10px;
+        }
+
+        .close:hover,
+        .close:focus {
+          color: black;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      </style>
+
+      <div class="medical-section">
+        <h2>Body Mass Index (BMI) Calculator</h2>
+        <div id="bmiCalculator">
+          <p>Enter your weight and height to calculate your BMI:</p>
+          <form id="bmiForm">
+            <label for="weight">Weight (kg):</label>
+            <input
+              type="number"
+              id="weight"
+              placeholder="Enter weight in kg"
+              required
+            />
+            <br />
+            <label for="height">Height (cm):</label>
+            <input
+              type="number"
+              id="height"
+              placeholder="Enter height in cm"
+              required
+            />
+            <br />
+            <button type="button" id="calculateBMI" class="btn">
+              Calculate BMI
+            </button>
+          </form>
+          <div id="bmiResult" style="margin-top: 10px">
+            <h3>BMI Result</h3>
+            <p id="bmiValue">-</p>
+            <p id="bmiCategory">-</p>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        document
+          .getElementById("calculateBMI")
+          .addEventListener("click", function () {
+            const weight = parseFloat(document.getElementById("weight").value);
+            const height =
+              parseFloat(document.getElementById("height").value) / 100; // Convert cm to meters
+
+            if (weight > 0 && height > 0) {
+              const bmi = (weight / (height * height)).toFixed(2); // Calculate BMI and round to 2 decimals
+              document.getElementById(
+                "bmiValue"
+              ).textContent = `Your BMI: ${bmi}`;
+
+              let category;
+              if (bmi < 18.5) {
+                category = "Underweight";
+              } else if (bmi >= 18.5 && bmi < 24.9) {
+                category = "Normal weight";
+              } else if (bmi >= 25 && bmi < 29.9) {
+                category = "Overweight";
+              } else {
+                category = "Obesity";
+              }
+              document.getElementById(
+                "bmiCategory"
+              ).textContent = `Category: ${category}`;
+            } else {
+              document.getElementById("bmiValue").textContent =
+                "Please enter valid weight and height.";
+              document.getElementById("bmiCategory").textContent = "";
+            }
+          });
+      </script>
+
+      <div class="medical-section">
+        <h2>
+          Hospital Visit History
+          <button id="toggleVisitHistory" class="btn">Show</button>
+        </h2>
+        <div id="visitHistory" style="display: none">
+          <table>
+            <tr>
+              <th>Date</th>
+              <th>Hospital Name</th>
+              <th>Reason for Visit</th>
+              <th>Treatment Provided</th>
+              <th>Actions</th>
+            </tr>
+            <tr>
+              <td>01/10/2023</td>
+              <td>City General Hospital</td>
+              <td>Chest Pain</td>
+              <td>Cardiac Screening</td>
+              <td>
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>06/20/2022</td>
+              <td>Metropolitan Health Clinic</td>
+              <td>Routine Checkup</td>
+              <td>Blood Work, Consultation</td>
+              <td>
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Add a new visit -->
+          <div id="addVisit">
+            <h3>Add New Visit</h3>
+            <form id="addVisitForm">
+              <label for="visitDate">Date:</label>
+              <input type="date" id="visitDate" required />
+              <br />
+              <label for="hospitalName">Hospital Name:</label>
+              <input
+                type="text"
+                id="hospitalName"
+                placeholder="Enter hospital name"
+                required
+              />
+              <br />
+              <label for="reason">Reason for Visit:</label>
+              <input
+                type="text"
+                id="reason"
+                placeholder="Reason for visit"
+                required
+              />
+              <br />
+              <label for="treatment">Treatment Provided:</label>
+              <input
+                type="text"
+                id="treatment"
+                placeholder="Treatment details"
+                required
+              />
+              <br />
+              <button type="button" id="addVisitButton" class="btn">
+                Add Visit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        // Toggle the visit history section
+        document
+          .getElementById("toggleVisitHistory")
+          .addEventListener("click", function () {
+            const visitSection = document.getElementById("visitHistory");
+            const button = this;
+
+            if (
+              visitSection.style.display === "none" ||
+              visitSection.style.display === ""
+            ) {
+              visitSection.style.display = "block";
+              button.textContent = "Hide";
+            } else {
+              visitSection.style.display = "none";
+              button.textContent = "Show";
+            }
+          });
+
+        // Add a new hospital visit
+        document
+          .getElementById("addVisitButton")
+          .addEventListener("click", function () {
+            const date = document.getElementById("visitDate").value;
+            const hospital = document.getElementById("hospitalName").value;
+            const reason = document.getElementById("reason").value;
+            const treatment = document.getElementById("treatment").value;
+
+            if (date && hospital && reason && treatment) {
+              // Create a new table row
+              const table = document.querySelector("#visitHistory table");
+              const newRow = table.insertRow();
+
+              const dateCell = newRow.insertCell(0);
+              const hospitalCell = newRow.insertCell(1);
+              const reasonCell = newRow.insertCell(2);
+              const treatmentCell = newRow.insertCell(3);
+              const actionCell = newRow.insertCell(4);
+
+              dateCell.textContent = date;
+              hospitalCell.textContent = hospital;
+              reasonCell.textContent = reason;
+              treatmentCell.textContent = treatment;
+              actionCell.innerHTML = `
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+            `;
+
+              // Clear the form inputs
+              document.getElementById("addVisitForm").reset();
+              alert("New visit added successfully!");
+            } else {
+              alert("Please fill in all fields before adding a visit.");
+            }
+          });
+
+        // Handle Edit and Delete actions
+        document
+          .querySelector("#visitHistory table")
+          .addEventListener("click", function (event) {
+            if (event.target && event.target.classList.contains("editBtn")) {
+              const row = event.target.closest("tr");
+              const dateCell = row.cells[0];
+              const hospitalCell = row.cells[1];
+              const reasonCell = row.cells[2];
+              const treatmentCell = row.cells[3];
+
+              // Pre-fill the form with the current row values
+              document.getElementById("visitDate").value = dateCell.textContent;
+              document.getElementById("hospitalName").value =
+                hospitalCell.textContent;
+              document.getElementById("reason").value = reasonCell.textContent;
+              document.getElementById("treatment").value =
+                treatmentCell.textContent;
+
+              // Change button to 'Save Changes'
+              document.getElementById("addVisitButton").textContent =
+                "Save Changes";
+              document.getElementById("addVisitButton").onclick = function () {
+                dateCell.textContent =
+                  document.getElementById("visitDate").value;
+                hospitalCell.textContent =
+                  document.getElementById("hospitalName").value;
+                reasonCell.textContent =
+                  document.getElementById("reason").value;
+                treatmentCell.textContent =
+                  document.getElementById("treatment").value;
+
+                // Reset the form and button
+                document.getElementById("addVisitForm").reset();
+                document.getElementById("addVisitButton").textContent =
+                  "Add Visit";
+              };
+            }
+
+            if (event.target && event.target.classList.contains("deleteBtn")) {
+              const row = event.target.closest("tr");
+              row.remove(); // Remove the row from the table
+              alert("Visit deleted!");
+            }
+          });
+      </script>
+
+      <div class="medical-section">
+        <h2>
+          Comprehensive Medical History
+          <button id="toggleHistory" class="btn">Show</button>
+        </h2>
+        <div id="medicalHistory" style="display: none">
+          <table>
+            <tr>
+              <th>Condition</th>
+              <th>Year Diagnosed</th>
+              <th>Current Status</th>
+              <th>Treatment Approach</th>
+              <th>Actions</th>
+            </tr>
+            <tr>
+              <td>Hypertension</td>
+              <td>2015</td>
+              <td>Managed</td>
+              <td>Medication and Lifestyle Modifications</td>
+              <td>
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Hyperlipidemia</td>
+              <td>2017</td>
+              <td>Controlled</td>
+              <td>Statin Therapy and Diet</td>
+              <td>
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Prediabetes</td>
+              <td>2020</td>
+              <td>Monitoring</td>
+              <td>Lifestyle Management</td>
+              <td>
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </td>
+            </tr>
+          </table>
+
+          <div id="addCondition">
+            <h3>Add New Medical Condition</h3>
+            <form id="addConditionForm">
+              <label for="condition">Condition:</label>
+              <input
+                type="text"
+                id="condition"
+                placeholder="Enter medical condition"
+                required
+              />
+              <br />
+              <label for="yearDiagnosed">Year Diagnosed:</label>
+              <input
+                type="number"
+                id="yearDiagnosed"
+                placeholder="Year"
+                required
+              />
+              <br />
+              <label for="currentStatus">Current Status:</label>
+              <input
+                type="text"
+                id="currentStatus"
+                placeholder="Current status"
+                required
+              />
+              <br />
+              <label for="treatmentApproach">Treatment Approach:</label>
+              <input
+                type="text"
+                id="treatmentApproach"
+                placeholder="Treatment details"
+                required
+              />
+              <br />
+              <button type="button" id="addConditionButton" class="btn">
+                Create
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        // Toggle the medical history section
+        document
+          .getElementById("toggleHistory")
+          .addEventListener("click", function () {
+            const historySection = document.getElementById("medicalHistory");
+            const button = this;
+
+            if (
+              historySection.style.display === "none" ||
+              historySection.style.display === ""
+            ) {
+              historySection.style.display = "block";
+              button.textContent = "Hide";
+            } else {
+              historySection.style.display = "none";
+              button.textContent = "Show";
+            }
+          });
+
+        // Add a new medical condition
+        document
+          .getElementById("addConditionButton")
+          .addEventListener("click", function () {
+            const condition = document.getElementById("condition").value;
+            const year = document.getElementById("yearDiagnosed").value;
+            const status = document.getElementById("currentStatus").value;
+            const treatment =
+              document.getElementById("treatmentApproach").value;
+
+            if (condition && year && status && treatment) {
+              // Create a new table row
+              const table = document.querySelector("#medicalHistory table");
+              const newRow = table.insertRow();
+
+              const conditionCell = newRow.insertCell(0);
+              const yearCell = newRow.insertCell(1);
+              const statusCell = newRow.insertCell(2);
+              const treatmentCell = newRow.insertCell(3);
+              const actionCell = newRow.insertCell(4);
+
+              conditionCell.textContent = condition;
+              yearCell.textContent = year;
+              statusCell.textContent = status;
+              treatmentCell.textContent = treatment;
+              actionCell.innerHTML = `
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+            `;
+
+              // Clear the form inputs
+              document.getElementById("addConditionForm").reset();
+              alert("New medical condition added successfully!");
+            } else {
+              alert("Please fill in all fields before adding a condition.");
+            }
+          });
+
+        // Handle Edit and Delete actions
+        document
+          .querySelector("#medicalHistory table")
+          .addEventListener("click", function (event) {
+            if (event.target && event.target.classList.contains("editBtn")) {
+              const row = event.target.closest("tr");
+              const conditionCell = row.cells[0];
+              const yearCell = row.cells[1];
+              const statusCell = row.cells[2];
+              const treatmentCell = row.cells[3];
+
+              // Pre-fill the form with the current row values
+              document.getElementById("condition").value =
+                conditionCell.textContent;
+              document.getElementById("yearDiagnosed").value =
+                yearCell.textContent;
+              document.getElementById("currentStatus").value =
+                statusCell.textContent;
+              document.getElementById("treatmentApproach").value =
+                treatmentCell.textContent;
+
+              // Change button to 'Save Changes'
+              document.getElementById("addConditionButton").textContent =
+                "Save Changes";
+              document.getElementById("addConditionButton").onclick =
+                function () {
+                  conditionCell.textContent =
+                    document.getElementById("condition").value;
+                  yearCell.textContent =
+                    document.getElementById("yearDiagnosed").value;
+                  statusCell.textContent =
+                    document.getElementById("currentStatus").value;
+                  treatmentCell.textContent =
+                    document.getElementById("treatmentApproach").value;
+
+                  // Reset the form and button
+                  document.getElementById("addConditionForm").reset();
+                  document.getElementById("addConditionButton").textContent =
+                    "Create";
+                };
+            }
+
+            if (event.target && event.target.classList.contains("deleteBtn")) {
+              const row = event.target.closest("tr");
+              row.remove(); // Remove the row from the table
+              alert("Condition deleted!");
+            }
+          });
+      </script>
+
+      <div class="medical-section">
+        <h2>
+          Current Diagnosis
+          <button id="toggleDiagnosis" class="btn">Show</button>
+        </h2>
+        <div id="currentDiagnosis" style="display: none">
+          <div class="critical-note">
+            <h3>Primary Diagnoses</h3>
+            <ul id="diagnosisList">
+              <li>
+                Chronic Hypertension
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </li>
+              <li>
+                Metabolic Syndrome
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </li>
+              <li>
+                Early-Stage Insulin Resistance
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </li>
+              <li>
+                Mild Chronic Inflammation
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </li>
+            </ul>
+          </div>
+
+          <div id="addDiagnosis">
+            <h3>Add New Diagnosis</h3>
+            <form id="addDiagnosisForm">
+              <label for="diagnosis">Diagnosis:</label>
+              <input
+                type="text"
+                id="diagnosis"
+                placeholder="Enter diagnosis"
+                required
+              />
+              <br />
+              <button type="button" id="addDiagnosisButton" class="btn">
+                Create
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        // Toggle the current diagnosis section
+        document
+          .getElementById("toggleDiagnosis")
+          .addEventListener("click", function () {
+            const diagnosisSection =
+              document.getElementById("currentDiagnosis");
+            const button = this;
+
+            if (
+              diagnosisSection.style.display === "none" ||
+              diagnosisSection.style.display === ""
+            ) {
+              diagnosisSection.style.display = "block";
+              button.textContent = "Hide";
+            } else {
+              diagnosisSection.style.display = "none";
+              button.textContent = "Show";
+            }
+          });
+
+        // Add a new diagnosis
+        document
+          .getElementById("addDiagnosisButton")
+          .addEventListener("click", function () {
+            const diagnosis = document.getElementById("diagnosis").value;
+
+            if (diagnosis) {
+              // Create a new list item
+              const ul = document.getElementById("diagnosisList");
+              const newListItem = document.createElement("li");
+
+              newListItem.textContent = diagnosis;
+              // Add Edit and Delete buttons
+              newListItem.innerHTML += `
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+            `;
+              ul.appendChild(newListItem);
+
+              // Clear the input field
+              document.getElementById("addDiagnosisForm").reset();
+              alert("New diagnosis added successfully!");
+            } else {
+              alert("Please enter a diagnosis before adding.");
+            }
+          });
+
+        // Handle Edit and Delete actions
+        document
+          .querySelector("#diagnosisList")
+          .addEventListener("click", function (event) {
+            if (event.target && event.target.classList.contains("editBtn")) {
+              const listItem = event.target.closest("li");
+              const diagnosisText = listItem.firstChild.textContent.trim();
+
+              // Pre-fill the form with the current diagnosis value
+              document.getElementById("diagnosis").value = diagnosisText;
+
+              // Update the list item when the Save button is clicked
+              document.getElementById("addDiagnosisButton").textContent =
+                "Save Changes";
+              document.getElementById("addDiagnosisButton").onclick =
+                function () {
+                  const newDiagnosis =
+                    document.getElementById("diagnosis").value;
+
+                  if (newDiagnosis) {
+                    listItem.firstChild.textContent = newDiagnosis;
+                    document.getElementById("addDiagnosisForm").reset();
+                    document.getElementById("addDiagnosisButton").textContent =
+                      "Create";
+                  }
+                };
+            }
+
+            if (event.target && event.target.classList.contains("deleteBtn")) {
+              const listItem = event.target.closest("li");
+              listItem.remove(); // Remove the list item
+              alert("Diagnosis deleted!");
+            }
+          });
+      </script>
+
+      <div class="medical-section">
+        <h2>
+          Treatment Plan
+          <button id="toggleTreatment" class="btn">Show</button>
+        </h2>
+        <div id="treatmentPlan" style="display: none">
+          <table id="treatmentPlanTable">
+            <tr>
+              <th>Medication</th>
+              <th>Dosage</th>
+              <th>Frequency</th>
+              <th>Purpose</th>
+              <th>Start Date</th>
+              <th>Actions</th>
+            </tr>
+            <tr>
+              <td>Metformin</td>
+              <td>500mg</td>
+              <td>Twice Daily</td>
+              <td>Manage Insulin Resistance</td>
+              <td>01/15/2021</td>
+              <td>
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Atorvastatin</td>
+              <td>20mg</td>
+              <td>Once Daily</td>
+              <td>Cholesterol Management</td>
+              <td>06/20/2017</td>
+              <td>
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Lisinopril</td>
+              <td>10mg</td>
+              <td>Once Daily</td>
+              <td>Blood Pressure Control</td>
+              <td>03/10/2015</td>
+              <td>
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Form to add new treatment plan -->
+          <div id="addTreatment">
+            <h3>Add New Treatment Plan</h3>
+            <form id="addTreatmentForm">
+              <label for="medication">Medication:</label>
+              <input
+                type="text"
+                id="medication"
+                placeholder="Enter medication"
+                required
+              />
+              <br />
+              <label for="dosage">Dosage:</label>
+              <input
+                type="text"
+                id="dosage"
+                placeholder="Enter dosage"
+                required
+              />
+              <br />
+              <label for="frequency">Frequency:</label>
+              <input
+                type="text"
+                id="frequency"
+                placeholder="Enter frequency"
+                required
+              />
+              <br />
+              <label for="purpose">Purpose:</label>
+              <input
+                type="text"
+                id="purpose"
+                placeholder="Enter purpose"
+                required
+              />
+              <br />
+              <label for="startDate">Start Date:</label>
+              <input type="date" id="startDate" required />
+              <br />
+              <button type="button" id="addTreatmentButton" class="btn">
+                Create
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        // Toggle the treatment plan section
+        document
+          .getElementById("toggleTreatment")
+          .addEventListener("click", function () {
+            const treatmentSection = document.getElementById("treatmentPlan");
+            const button = this;
+
+            if (
+              treatmentSection.style.display === "none" ||
+              treatmentSection.style.display === ""
+            ) {
+              treatmentSection.style.display = "block";
+              button.textContent = "Hide";
+            } else {
+              treatmentSection.style.display = "none";
+              button.textContent = "Show";
+            }
+          });
+
+        // Add a new treatment plan
+        document
+          .getElementById("addTreatmentButton")
+          .addEventListener("click", function () {
+            const medication = document.getElementById("medication").value;
+            const dosage = document.getElementById("dosage").value;
+            const frequency = document.getElementById("frequency").value;
+            const purpose = document.getElementById("purpose").value;
+            const startDate = document.getElementById("startDate").value;
+
+            if (medication && dosage && frequency && purpose && startDate) {
+              // Create a new table row
+              const table = document.querySelector("#treatmentPlanTable");
+              const newRow = table.insertRow();
+
+              const medicationCell = newRow.insertCell(0);
+              const dosageCell = newRow.insertCell(1);
+              const frequencyCell = newRow.insertCell(2);
+              const purposeCell = newRow.insertCell(3);
+              const startDateCell = newRow.insertCell(4);
+              const actionsCell = newRow.insertCell(5);
+
+              medicationCell.textContent = medication;
+              dosageCell.textContent = dosage;
+              frequencyCell.textContent = frequency;
+              purposeCell.textContent = purpose;
+              startDateCell.textContent = startDate;
+
+              // Add Edit and Delete buttons
+              actionsCell.innerHTML = `
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+            `;
+
+              // Clear the form inputs
+              document.getElementById("addTreatmentForm").reset();
+              alert("New treatment plan added successfully!");
+            } else {
+              alert(
+                "Please fill in all fields before adding a treatment plan."
+              );
+            }
+          });
+
+        // Handle Edit and Delete actions
+        document
+          .querySelector("#treatmentPlanTable")
+          .addEventListener("click", function (event) {
+            if (event.target && event.target.classList.contains("editBtn")) {
+              const row = event.target.closest("tr");
+              const medication = row.cells[0].textContent;
+              const dosage = row.cells[1].textContent;
+              const frequency = row.cells[2].textContent;
+              const purpose = row.cells[3].textContent;
+              const startDate = row.cells[4].textContent;
+
+              // Pre-fill the form with the current row's values
+              document.getElementById("medication").value = medication;
+              document.getElementById("dosage").value = dosage;
+              document.getElementById("frequency").value = frequency;
+              document.getElementById("purpose").value = purpose;
+              document.getElementById("startDate").value = startDate;
+
+              // Update the row when the Save button is clicked
+              document.getElementById("addTreatmentButton").textContent =
+                "Save Changes";
+              document.getElementById("addTreatmentButton").onclick =
+                function () {
+                  if (
+                    medication &&
+                    dosage &&
+                    frequency &&
+                    purpose &&
+                    startDate
+                  ) {
+                    row.cells[0].textContent = medication;
+                    row.cells[1].textContent = dosage;
+                    row.cells[2].textContent = frequency;
+                    row.cells[3].textContent = purpose;
+                    row.cells[4].textContent = startDate;
+
+                    // Reset form and button
+                    document.getElementById("addTreatmentForm").reset();
+                    document.getElementById("addTreatmentButton").textContent =
+                      "Create";
+                  }
+                };
+            }
+
+            if (event.target && event.target.classList.contains("deleteBtn")) {
+              const row = event.target.closest("tr");
+              row.remove(); // Remove the row from the table
+              alert("Treatment plan deleted!");
+            }
+          });
+      </script>
+
+      <div class="medical-section">
+        <h2>
+          Laboratory Results
+          <button id="toggleLabResults" class="btn">Show</button>
+        </h2>
+        <div id="labResults" style="display: none">
+          <table id="labResultsTable">
+            <tr>
+              <th>Test</th>
+              <th>Result</th>
+              <th>Reference Range</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+            <tr>
+              <td>HbA1c</td>
+              <td>6.2%</td>
+              <td>&lt; 5.7%</td>
+              <td>Elevated</td>
+              <td>01/15/2025</td>
+              <td>
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Lipid Panel</td>
+              <td>LDL: 115 mg/dL</td>
+              <td>&lt; 100 mg/dL</td>
+              <td>Borderline High</td>
+              <td>01/15/2025</td>
+              <td>
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>C-Reactive Protein</td>
+              <td>3.5 mg/L</td>
+              <td>&lt; 3.0 mg/L</td>
+              <td>Slightly Elevated</td>
+              <td>01/15/2025</td>
+              <td>
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Form to add new laboratory result -->
+          <div id="addLabResult">
+            <h3>Add New Laboratory Result</h3>
+            <form id="addLabResultForm">
+              <label for="testName">Test Name:</label>
+              <input
+                type="text"
+                id="testName"
+                placeholder="Enter test name"
+                required
+              />
+              <br />
+              <label for="testResult">Result:</label>
+              <input
+                type="text"
+                id="testResult"
+                placeholder="Enter result"
+                required
+              />
+              <br />
+              <label for="referenceRange">Reference Range:</label>
+              <input
+                type="text"
+                id="referenceRange"
+                placeholder="Enter reference range"
+                required
+              />
+              <br />
+              <label for="status">Status:</label>
+              <input
+                type="text"
+                id="status"
+                placeholder="Enter status"
+                required
+              />
+              <br />
+              <label for="testDate">Date:</label>
+              <input type="date" id="testDate" required />
+              <br />
+              <button type="button" id="addLabResultButton" class="btn">
+                Create
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        // Toggle the laboratory results section
+        document
+          .getElementById("toggleLabResults")
+          .addEventListener("click", function () {
+            const labSection = document.getElementById("labResults");
+            const button = this;
+
+            if (
+              labSection.style.display === "none" ||
+              labSection.style.display === ""
+            ) {
+              labSection.style.display = "block";
+              button.textContent = "Hide";
+            } else {
+              labSection.style.display = "none";
+              button.textContent = "Show";
+            }
+          });
+
+        // Add a new laboratory result
+        document
+          .getElementById("addLabResultButton")
+          .addEventListener("click", function () {
+            const testName = document.getElementById("testName").value;
+            const testResult = document.getElementById("testResult").value;
+            const referenceRange =
+              document.getElementById("referenceRange").value;
+            const status = document.getElementById("status").value;
+            const testDate = document.getElementById("testDate").value;
+
+            if (
+              testName &&
+              testResult &&
+              referenceRange &&
+              status &&
+              testDate
+            ) {
+              // Create a new table row
+              const table = document.querySelector("#labResultsTable");
+              const newRow = table.insertRow();
+
+              const testNameCell = newRow.insertCell(0);
+              const testResultCell = newRow.insertCell(1);
+              const referenceRangeCell = newRow.insertCell(2);
+              const statusCell = newRow.insertCell(3);
+              const testDateCell = newRow.insertCell(4);
+              const actionsCell = newRow.insertCell(5);
+
+              testNameCell.textContent = testName;
+              testResultCell.textContent = testResult;
+              referenceRangeCell.textContent = referenceRange;
+              statusCell.textContent = status;
+              testDateCell.textContent = testDate;
+
+              // Add Edit and Delete buttons
+              actionsCell.innerHTML = `
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+            `;
+
+              // Clear the form inputs
+              document.getElementById("addLabResultForm").reset();
+              alert("New laboratory result added successfully!");
+            } else {
+              alert(
+                "Please fill in all fields before adding a laboratory result."
+              );
+            }
+          });
+
+        // Handle Edit and Delete actions
+        document
+          .querySelector("#labResultsTable")
+          .addEventListener("click", function (event) {
+            if (event.target && event.target.classList.contains("editBtn")) {
+              const row = event.target.closest("tr");
+              const testName = row.cells[0].textContent;
+              const testResult = row.cells[1].textContent;
+              const referenceRange = row.cells[2].textContent;
+              const status = row.cells[3].textContent;
+              const testDate = row.cells[4].textContent;
+
+              // Pre-fill the form with the current row's values
+              document.getElementById("testName").value = testName;
+              document.getElementById("testResult").value = testResult;
+              document.getElementById("referenceRange").value = referenceRange;
+              document.getElementById("status").value = status;
+              document.getElementById("testDate").value = testDate;
+
+              // Update the row when the Save button is clicked
+              document.getElementById("addLabResultButton").textContent =
+                "Save Changes";
+              document.getElementById("addLabResultButton").onclick =
+                function () {
+                  if (
+                    testName &&
+                    testResult &&
+                    referenceRange &&
+                    status &&
+                    testDate
+                  ) {
+                    row.cells[0].textContent = testName;
+                    row.cells[1].textContent = testResult;
+                    row.cells[2].textContent = referenceRange;
+                    row.cells[3].textContent = status;
+                    row.cells[4].textContent = testDate;
+
+                    // Reset form and button
+                    document.getElementById("addLabResultForm").reset();
+                    document.getElementById("addLabResultButton").textContent =
+                      "Create";
+                  }
+                };
+            }
+
+            if (event.target && event.target.classList.contains("deleteBtn")) {
+              const row = event.target.closest("tr");
+              row.remove(); // Remove the row from the table
+              alert("Laboratory result deleted!");
+            }
+          });
+      </script>
+
+      <div class="medical-section">
+        <h2>
+          COVID-19 Vaccination Record
+          <button id="toggleVaccinationRecord" class="btn">Show</button>
+        </h2>
+        <div id="vaccinationRecord" style="display: none">
+          <table id="vaccinationTable">
+            <tr>
+              <th>Vaccine Type</th>
+              <th>Manufacturer</th>
+              <th>Dose</th>
+              <th>Date Administered</th>
+              <th>Batch Number</th>
+              <th>Actions</th>
+            </tr>
+            <tr>
+              <td>mRNA Vaccine</td>
+              <td>Pfizer-BioNTech</td>
+              <td>Primary Series (2 doses)</td>
+              <td>
+                1st Dose: 05/15/2021<br />
+                2nd Dose: 06/12/2021
+              </td>
+              <td>
+                1st: EH9899<br />
+                2nd: FG7755
+              </td>
+              <td>
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Booster</td>
+              <td>Pfizer-BioNTech</td>
+              <td>Booster Dose</td>
+              <td>01/15/2022</td>
+              <td>HJ6633</td>
+              <td>
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Existing modal and form to add new vaccination record -->
+          <div id="addVaccinationRecord">
+            <h3>Add New Vaccination Record</h3>
+            <form id="addVaccinationForm">
+              <label for="vaccineType">Vaccine Type:</label>
+              <input
+                type="text"
+                id="vaccineType"
+                placeholder="Enter vaccine type"
+                required
+              />
+              <br />
+              <label for="manufacturer">Manufacturer:</label>
+              <input
+                type="text"
+                id="manufacturer"
+                placeholder="Enter manufacturer"
+                required
+              />
+              <br />
+              <label for="dose">Dose:</label>
+              <input type="text" id="dose" placeholder="Enter dose" required />
+              <br />
+              <label for="dateAdministered">Date Administered:</label>
+              <input
+                type="text"
+                id="dateAdministered"
+                placeholder="Enter date administered"
+                required
+              />
+              <br />
+              <label for="batchNumber">Batch Number:</label>
+              <input
+                type="text"
+                id="batchNumber"
+                placeholder="Enter batch number"
+                required
+              />
+              <br />
+              <button type="button" id="addVaccinationRecordButton" class="btn">
+                Create
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        // Toggle the vaccination record section
+        document
+          .getElementById("toggleVaccinationRecord")
+          .addEventListener("click", function () {
+            const vaccinationSection =
+              document.getElementById("vaccinationRecord");
+            const button = this;
+
+            if (
+              vaccinationSection.style.display === "none" ||
+              vaccinationSection.style.display === ""
+            ) {
+              vaccinationSection.style.display = "block";
+              button.textContent = "Hide";
+            } else {
+              vaccinationSection.style.display = "none";
+              button.textContent = "Show";
+            }
+          });
+
+        // Add a new vaccination record
+        document
+          .getElementById("addVaccinationRecordButton")
+          .addEventListener("click", function () {
+            const vaccineType = document.getElementById("vaccineType").value;
+            const manufacturer = document.getElementById("manufacturer").value;
+            const dose = document.getElementById("dose").value;
+            const dateAdministered =
+              document.getElementById("dateAdministered").value;
+            const batchNumber = document.getElementById("batchNumber").value;
+
+            if (
+              vaccineType &&
+              manufacturer &&
+              dose &&
+              dateAdministered &&
+              batchNumber
+            ) {
+              // Create a new table row
+              const table = document.querySelector("#vaccinationTable");
+              const newRow = table.insertRow();
+
+              const vaccineTypeCell = newRow.insertCell(0);
+              const manufacturerCell = newRow.insertCell(1);
+              const doseCell = newRow.insertCell(2);
+              const dateAdministeredCell = newRow.insertCell(3);
+              const batchNumberCell = newRow.insertCell(4);
+              const actionsCell = newRow.insertCell(5);
+
+              vaccineTypeCell.textContent = vaccineType;
+              manufacturerCell.textContent = manufacturer;
+              doseCell.textContent = dose;
+              dateAdministeredCell.textContent = dateAdministered;
+              batchNumberCell.textContent = batchNumber;
+
+              // Add Edit and Delete buttons
+              actionsCell.innerHTML = `
+                <button class="editBtn">Edit</button>
+                <button class="deleteBtn">Delete</button>
+            `;
+
+              // Clear the form inputs
+              document.getElementById("addVaccinationForm").reset();
+              alert("New vaccination record added successfully!");
+            } else {
+              alert(
+                "Please fill in all fields before adding a vaccination record."
+              );
+            }
+          });
+
+        // Handle Edit and Delete actions
+        document
+          .querySelector("#vaccinationTable")
+          .addEventListener("click", function (event) {
+            if (event.target && event.target.classList.contains("editBtn")) {
+              const row = event.target.closest("tr");
+              const vaccineType = row.cells[0].textContent;
+              const manufacturer = row.cells[1].textContent;
+              const dose = row.cells[2].textContent;
+              const dateAdministered = row.cells[3].textContent;
+              const batchNumber = row.cells[4].textContent;
+
+              // Pre-fill the form with the current row's values
+              document.getElementById("vaccineType").value = vaccineType;
+              document.getElementById("manufacturer").value = manufacturer;
+              document.getElementById("dose").value = dose;
+              document.getElementById("dateAdministered").value =
+                dateAdministered;
+              document.getElementById("batchNumber").value = batchNumber;
+
+              // Update the row when the Save button is clicked
+              document.getElementById(
+                "addVaccinationRecordButton"
+              ).textContent = "Save Changes";
+              document.getElementById("addVaccinationRecordButton").onclick =
+                function () {
+                  if (
+                    vaccineType &&
+                    manufacturer &&
+                    dose &&
+                    dateAdministered &&
+                    batchNumber
+                  ) {
+                    row.cells[0].textContent = vaccineType;
+                    row.cells[1].textContent = manufacturer;
+                    row.cells[2].textContent = dose;
+                    row.cells[3].textContent = dateAdministered;
+                    row.cells[4].textContent = batchNumber;
+
+                    // Reset form and button
+                    document.getElementById("addVaccinationForm").reset();
+                    document.getElementById(
+                      "addVaccinationRecordButton"
+                    ).textContent = "Create";
+                  }
+                };
+            }
+
+            if (event.target && event.target.classList.contains("deleteBtn")) {
+              const row = event.target.closest("tr");
+              row.remove(); // Remove the row from the table
+              alert("Vaccination record deleted!");
+            }
+          });
+      </script>
+    </div>
+  </body>
+</html>

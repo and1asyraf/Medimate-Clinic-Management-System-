@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bookAppointmentStyles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="homepage.html">
+                <img src="images/logo.png" alt="Logo">
+            </a>
+        </div>
+        <div class="right-icons">
+            <img src="images/userImage.png" alt="Profile" class="profile-image">
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Book an Appointment</h1>
+        <form id="appointmentForm">
+            <label for="appointmentDate">Appointment Date:</label>
+            <input type="date" id="appointmentDate" required>
+
+            <label for="appointmentTime">Appointment Time:</label>
+            <select id="appointmentTime" required>
+                <option value="">Select Time</option>
+                <option value="9:00 AM">9:00 AM</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="2:00 PM">2:00 PM</option>
+                <option value="3:00 PM">3:00 PM</option>
+                <option value="4:00 PM">4:00 PM</option>
+            </select>
+
+            <label for="reason">Reason for Appointment:</label>
+            <textarea id="reason" rows="4" placeholder="Describe your reason for the appointment..." required></textarea>
+
+            <button type="submit" class="submit-btn">Book Appointment</button>
+        </form>
+
+        <!-- Pop-up Success Message -->
+        <div id="popupMessage" class="popup-message">
+            <div class="popup-content">
+                <p>Your appointment has been successfully booked!</p>
+                <button id="closePopup" class="close-popup-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="appointmentbooking.js"></script>
+</body>
+</html>

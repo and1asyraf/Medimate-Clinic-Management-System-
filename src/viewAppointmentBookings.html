@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Appointment Bookings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="viewAppointmentBookingsStyles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="homepageAdmin.html">
+                <img src="images/logo.png" alt="Logo">
+            </a>
+        </div>
+        <div class="right-icons">
+            <img src="images/adminPicture.png" alt="Profile" class="profile-image">
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Appointment Bookings</h1>
+
+        <!-- Appointment Card -->
+        <div class="appointment-card" id="appointmentCard">
+            <div class="appointment-info">
+                <p><strong>Patient Name:</strong> John Doe</p>
+                <p><strong>Appointment Date:</strong> 2025-02-01</p>
+                <p><strong>Appointment Time:</strong> 10:00 AM</p>
+                <p><strong>Reason for Appointment:</strong> General Checkup</p>
+            </div>
+            <div class="actions" id="actions">
+                <button class="accept-btn" onclick="acceptAppointment()">Accept Appointment</button>
+                <button class="reschedule-btn" onclick="openRescheduleModal()">Reschedule</button>
+            </div>
+            <div class="accepted-status" id="acceptedStatus" style="display: none;">
+                <p>Accepted: Dr. Andi Capopps</p>
+            </div>
+        </div>
+
+        <!-- Reschedule Modal -->
+        <div id="rescheduleModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeRescheduleModal()">×</span>
+                <h2>Reschedule Appointment</h2>
+                <label for="newDate">New Appointment Date:</label>
+                <input type="date" id="newDate">
+                <label for="newTime">New Appointment Time:</label>
+                <select id="newTime">
+                    <option value="9:00 AM">9:00 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="12:00 PM">12:00 PM</option>
+                    <option value="2:00 PM">2:00 PM</option>
+                    <option value="3:00 PM">3:00 PM</option>
+                    <option value="4:00 PM">4:00 PM</option>
+                </select>
+                <button class="submit-btn">Submit Reschedule</button>
+                <button class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="viewAppointmentBookings.js"></script>
+</body>
+</html>

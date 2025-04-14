@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Patient Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="viewPatientInfoStyles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="homepageAdmin.html">
+                <img src="images/logo.png" alt="Logo">
+            </a>
+        </div>
+        <div class="right-icons">
+            <img src="images/adminPicture.png" alt="Profile" class="profile-image">
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Patient Information</h1>
+        <input type="text" id="searchBar" placeholder="Search for a patient..." />
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient ID</th>
+                    <th>Name</th>
+                    <th>Matric ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="patientTable">
+                <tr>
+                    <td>101</td>
+                    <td>Wong Jing Ming</td>
+                    <td>123321</td>
+                    <td><button class="view-details-btn" data-id="101">View Details</button></td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Za'im Qody</td>
+                    <td>145541</td>
+                    <td><button class="view-details-btn" data-id="102">View Details</button></td>
+                </tr>
+                <tr>
+                    <td>103</td>
+                    <td>Ahmad Peja</td>
+                    <td>169961</td>
+                    <td><button class="view-details-btn" data-id="103">View Details</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal for Patient Details -->
+    <div id="patientModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Patient Details</h2>
+            <div id="patientDetails">
+                <!-- Dynamic content populated here -->
+            </div>
+            <button class="view-medical-records-btn" data-id="101" onclick="window.location.href='editMedicalRecord.html'">View Medical Records</button>
+            <button class="update-medical-record-btn" data-id="101">Submit Appointment Report</button>
+        </div>
+    </div>
+
+    <!-- Modal for Viewing Medical Records -->
+    <div id="medicalRecordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Medical Records</h2>
+            <div id="medicalRecordDetails">
+                <!-- Dynamic content populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Updating Medical Record -->
+    <div id="updateRecordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Submit Appointment Report</h2>
+            <div id="updateRecordForm">
+                <!-- Dynamic content populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Success Message -->
+    <div id="successMessageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Success!</h2>
+            <p>Appointment Report has been submitted to Wong Jing Ming</p>
+        </div>
+    </div>
+
+    <script src="viewPatientInfo.js"></script>
+</body>
+</html>
