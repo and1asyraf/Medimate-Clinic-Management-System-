@@ -1,6 +1,6 @@
 # 🏥 MediMate
 
-**MediMate** is a web-based digital healthcare system developed to modernize **Pusat Sejahtera USM's** services. It replaces the traditional paper-based approach with an accessible digital platform, built entirely using **HTML**, **CSS**, and **JavaScript**, with **Firebase** for backend services like authentication and database storage.
+**MediMate** is a web-based digital healthcare system developed to modernize clinical services. It replaces the traditional paper-based approach with an accessible digital platform, built entirely using **HTML**, **CSS**, and **JavaScript**, with **Firebase** for backend services like authentication and database storage.
 
 This project supports **UN SDG 3: Good Health and Well-being**, promoting digital health services on campus.
 
