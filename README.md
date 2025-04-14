@@ -36,8 +36,6 @@ This project supports **UN SDG 3: Good Health and Well-being**, promoting digita
 ### Screenshots 
 
 ![Patient Sign In](screenshots/SignInPatient.png)
-### Screenshots 
-
 ![Admin Sign In](screenshots/SignInAdmin.png)
 ![Patient Record (4)](screenshots/PatientRecord4.png)
 ![Patient Record (3)](screenshots/PatientRecord3.png)
